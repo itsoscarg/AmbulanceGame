@@ -8,7 +8,8 @@ function AmbulanceGame (player1Name) {
     [ null, null, 1, null, null ], // 4
     ];
 
-
+}
+//moveLeft Function
 AmbulanceGame.prototype.moveLeft = function () {
     var updatedBoard = [];
     var theBoard = this.board;
@@ -16,17 +17,38 @@ AmbulanceGame.prototype.moveLeft = function () {
     this.board.forEach(function (row, rowIndex) {
       row.forEach(function (cell, colIndex) {
       if (cell === 1) {
+        if (colIndex === 0) {
+          return;
+        }
+      else {
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex - 1] = 1;
-      }
-        });
-        });
+    }}
 renderBoard();
+    });
+  });
 };
-}
 
+//moveRight function
+AmbulanceGame.prototype.moveRight = function () {
+    var updatedBoard = [];
+    var theBoard = this.board;
 
-
+    this.board.forEach(function (row, rowIndex) {
+      row.forEach(function (cell, colIndex) {
+      if (cell === 1) {
+        if (colIndex === 4) {
+          return;
+        }
+        else {
+      theBoard[rowIndex][colIndex] = null;
+      theBoard[rowIndex][colIndex + 1] = 1;
+    }}
+renderBoard();
+    });
+  });
+};
+//Move switch
     AmbulanceGame.prototype.move = function (direction) {
         if (this.hasWon || this.hasLost) {
         return;
@@ -36,9 +58,40 @@ renderBoard();
         case 'left':
           this.moveLeft();
           break;
-        // case 'right':
-        //   this.moveRight();
-        //   break;
+        case 'right':
+           this.moveRight();
+           break;
       }
-//};
-  };
+
+};
+
+      //End of row function
+//       var theGame = this;
+//       var theBoard = this.board;
+//
+//       this.board.forEach(function (row, rowIndex) {
+//         row.forEach(function (cell, colIndex) {
+//           if (cell ===1) {
+//             var current = theGame.board[rowIndex][colIndex];
+//
+//
+//           }
+// //        });
+// renderBoard();
+
+//      };
+// AmbulanceGame.prototype.moveLeft = function () {
+//     var updatedBoard = [];
+//     var theBoard = this.board;
+//
+//     this.board.forEach(function (row, rowIndex) {
+//       row.forEach(function (cell, colIndex) {
+//       if (cell === 1) {
+//       theBoard[rowIndex][colIndex] = null;
+//       theBoard[rowIndex][colIndex - 1] = 1;
+//       }
+//         });
+//         });
+// renderBoard();
+// };
+// }
