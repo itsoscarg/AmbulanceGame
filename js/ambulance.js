@@ -11,61 +11,34 @@ function AmbulanceGame (player1Name) {
 
 AmbulanceGame.prototype.moveLeft = function () {
     var updatedBoard = [];
-    var theGame = this;
+    var theBoard = this.board;
 
-    this.board.forEach(function (X) {
-      row.forEach(function (Y) {
-      if ([1] === [1]); position = Y;
-    });
+    this.board.forEach(function (row, rowIndex) {
+      row.forEach(function (cell, colIndex) {
+      if (cell === 1) {
+      theBoard[rowIndex][colIndex] = null;
+      theBoard[rowIndex][colIndex - 1] = 1;
+      }
         });
-      console.log(position);
-
-
-
-
+        });
+renderBoard();
 };
 }
-      // var updateBoard = [];
-      // var theGame = this;
-      //
-      // this.board.forEach(function (row) {
-      //   var newRow = [];
 
 
-        // function findEmployee(id) {
-        //     var employee;
-        //     employees.forEach(function (e) {
-        //         if (e.id === id) employee = e;
-        //     });
-        //     return employee;
-        // }
 
-  // Game2048.prototype.moveLeft = function () {
-  //   var updatedBoard = [];
-  //   var theGame = this;
-  //
-  //   this.board.forEach(function (row) {
-  //     // 1. Remove empties from row
-  //     var newRow = [];
-  //
-  //     row.forEach(function (cell) {
-  //       if (cell !== null) {
-  //         newRow.push(cell);
-  //       }
-  //     });
+    AmbulanceGame.prototype.move = function (direction) {
+        if (this.hasWon || this.hasLost) {
+        return;
+      }
 
-//     AmbulanceGame.prototype.move = function (direction) {
-//         if (this.hasWon || this.hasLost) {
-//         return;
-//       }
-//
-//       switch (direction) {
-//         case 'left':
-//           this.moveLeft();
-//           break;
-//         // case 'right':
-//         //   this.moveRight();
-//         //   break;
-//       }
-// };
-//   });
+      switch (direction) {
+        case 'left':
+          this.moveLeft();
+          break;
+        // case 'right':
+        //   this.moveRight();
+        //   break;
+      }
+//};
+  };
