@@ -3,11 +3,12 @@ var myGlobalGame;
 myGlobalGame = new AmbulanceGame();
 
 $(document).ready(function () {
+  renderBoard();
 
 });
 
 //2. Take the initial board and place it on the screen
-renderBoard();
+
 
 //3. Handle keyboard events
 $(document).keydown(moveGame);
@@ -44,12 +45,16 @@ function renderBoard () {
       var ambulanceClass;
 
       if (slot === 1) {
-        // check slot for 1
+        // check slot for 1 ambulance
         ambulanceClass = 'ambulance1';
       } else if (slot === 2) {
         // obstacle
         ambulanceClass = 'obstacle';
-      } else {
+      } else if (slot === 0) {
+        //hospital
+        ambulanceClass = 'hospital';
+      }
+      else {
         // empty slot
         ambulanceClass = '';
       }
@@ -58,4 +63,16 @@ function renderBoard () {
       $('#board').append(slotHtml);
     });
   });
+
+
+}
+
+
+function hideTop () {
+  $('.board:nth-child(0)').css("display", "none");
+      //("#list:nth-child(odd)");
+    // $( "ul li:nth-child(2)" ).append( "<span> - 2nd!</span>" );
+   //$('board').children(".square2" ).css("display", "none");
+  //$('board > .square').css("display", "none");
+//  $( "div" ).children( ".selected" ).css( "color", "blue" );
 }
