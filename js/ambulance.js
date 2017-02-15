@@ -33,14 +33,16 @@ renderBoard();
 AmbulanceGame.prototype.moveRight = function () {
     var updatedBoard = [];
     var theBoard = this.board;
+    var found = false;
 
     this.board.forEach(function (row, rowIndex) {
       row.forEach(function (cell, colIndex) {
-      if (cell === 1) {
+      if ((cell === 1) && found === false)  {
         if (colIndex === 4) {
           return;
         }
         else {
+          found = true;
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex + 1] = 1;
     }}
