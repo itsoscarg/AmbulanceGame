@@ -3,7 +3,7 @@ var myGlobalGame;
 myGlobalGame = new AmbulanceGame();
 
 $(document).ready(function () {
-  renderBoard();
+  generateBoard();
 
 });
 
@@ -36,9 +36,11 @@ function moveGame (ev) {
       break;
   }
 }
-//Function to place the board on the screen
-function renderBoard () {
+
+function generateBoard () {
   $('#board').empty();
+  var hide = 25 - (myGlobalGame.stage * 5);
+  var slotHtml;
 
   myGlobalGame.board.forEach(function (row) {
     row.forEach(function (slot) {
@@ -59,20 +61,18 @@ function renderBoard () {
         ambulanceClass = '';
       }
 
-      var slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
-      $('#board').append(slotHtml);
+      if (hide > 0){
+        slotHtml = '<div class="square2"><div class="slot' + ambulanceClass + '"></div></div>';
+        $('#board').append(slotHtml);
+        hide -= 1;
+      } else {
+        slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
+        $('#board').append(slotHtml);
+      }
+
+
     });
   });
 
 
-}
-
-
-function hideTop () {
-  $('.board:nth-child(0)').css("display", "none");
-      //("#list:nth-child(odd)");
-    // $( "ul li:nth-child(2)" ).append( "<span> - 2nd!</span>" );
-   //$('board').children(".square2" ).css("display", "none");
-  //$('board > .square').css("display", "none");
-//  $( "div" ).children( ".selected" ).css( "color", "blue" );
 }

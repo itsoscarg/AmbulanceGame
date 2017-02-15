@@ -11,7 +11,7 @@ function AmbulanceGame (player1Name) {
     [ null, null, null, null, null ], // 3
     [ null, null, 1, null, null ], // 4
     ];
-
+this.stage = 0;
 }
 //moveLeft Function
 AmbulanceGame.prototype.moveLeft = function () {
@@ -28,7 +28,7 @@ AmbulanceGame.prototype.moveLeft = function () {
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex - 1] = 1;
     }}
-renderBoard();
+generateBoard();
     });
   });
 };
@@ -50,7 +50,7 @@ AmbulanceGame.prototype.moveRight = function () {
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex + 1] = 1;
     }}
-renderBoard();
+generateBoard();
     });
   });
 };
@@ -71,33 +71,4 @@ renderBoard();
 
 };
 
-      //End of row function
-//       var theGame = this;
-//       var theBoard = this.board;
-//
-//       this.board.forEach(function (row, rowIndex) {
-//         row.forEach(function (cell, colIndex) {
-//           if (cell ===1) {
-//             var current = theGame.board[rowIndex][colIndex];
-//
-//
-//           }
-// //        });
-// renderBoard();
-
-//      };
-// AmbulanceGame.prototype.moveLeft = function () {
-//     var updatedBoard = [];
-//     var theBoard = this.board;
-//
-//     this.board.forEach(function (row, rowIndex) {
-//       row.forEach(function (cell, colIndex) {
-//       if (cell === 1) {
-//       theBoard[rowIndex][colIndex] = null;
-//       theBoard[rowIndex][colIndex - 1] = 1;
-//       }
-//         });
-//         });
-// renderBoard();
-// };
-// }
+    
