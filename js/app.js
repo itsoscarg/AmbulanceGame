@@ -3,12 +3,10 @@ var myGlobalGame;
 myGlobalGame = new AmbulanceGame();
 
 $(document).ready(function () {
+//2. Take the initial board and place it on the screen by calling function
   generateBoard();
 
 });
-
-//2. Take the initial board and place it on the screen
-
 
 //3. Handle keyboard events
 $(document).keydown(moveGame);
@@ -23,7 +21,7 @@ function moveGame (ev) {
   // prevent arrow key scrolling
   ev.preventDefault();
 
-  // 4. move board in object based on keypresses (up, down, left, right)
+  // 4. move player based on keypresses (right, left)
   // move if correct keys were pressed
   switch (ev.keyCode) {
     case 37:  // left arrow
@@ -36,7 +34,7 @@ function moveGame (ev) {
       break;
   }
 }
-
+ //generateBoard function
 function generateBoard () {
   $('#board').empty();
   var hide = 25 - (myGlobalGame.stage * 5);
@@ -60,7 +58,7 @@ function generateBoard () {
         // empty slot
         ambulanceClass = '';
       }
-
+//hide the first 25 squares else show the rest
       if (hide > 0){
         slotHtml = '<div class="square2"><div class="slot' + ambulanceClass + '"></div></div>';
         $('#board').append(slotHtml);
@@ -69,10 +67,19 @@ function generateBoard () {
         slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
         $('#board').append(slotHtml);
       }
-
-
     });
   });
-
-
 }
+  function boardShift () {
+      if (hide === 5) {
+        hide += 5;
+      }
+
+    var slotHtml;
+//begin showing the 5 squares at a time
+    if (hide > 0){
+      slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
+      $('#board').append(slotHtml);
+      show -= 5;
+    }
+  }

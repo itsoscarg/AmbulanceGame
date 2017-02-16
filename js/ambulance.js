@@ -2,14 +2,14 @@ function AmbulanceGame (player1Name) {
   this.board = [
     // 0     1     2     3     4
     [ null, null, 0, null, null ], // 0
-    [ null, null, null, null, null ], // 0
-    [ null, null, null, null, null ], // 0
-    [ null, null, null, null, null ], // 0
-    [ null, null, null, null, null ], // 0
     [ null, null, null, null, null ], // 1
-    [ null, 2, null, null, null ], // 2
+    [ null, null, null, null, null ], // 2
     [ null, null, null, null, null ], // 3
-    [ null, null, 1, null, null ], // 4
+    [ null, null, null, null, null ], // 4
+    [ null, null, null, null, null ], // 5
+    [ null, 2, null, null, null ], // 6
+    [ null, null, null, null, null ], // 7
+    [ null, null, 1, null, null ], // 8
     ];
 this.stage = 0;
 }
@@ -70,5 +70,3 @@ generateBoard();
       }
 
 };
-
-    
