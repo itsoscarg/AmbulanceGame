@@ -2,9 +2,12 @@
 var myGlobalGame;
 myGlobalGame = new AmbulanceGame();
 
+
+
 $(document).ready(function () {
 //2. Take the initial board and place it on the screen by calling function
   generateBoard();
+setInterval(function(){ moveBoard();}, 4000);
 
 });
 
@@ -34,10 +37,13 @@ function moveGame (ev) {
       break;
   }
 }
+
+
  //generateBoard function
 function generateBoard () {
+   hide =  25 - (myGlobalGame.stage * 5);
+  console.log("hide variable is: " + hide);
   $('#board').empty();
-  var hide = 25 - (myGlobalGame.stage * 5);
   var slotHtml;
 
   myGlobalGame.board.forEach(function (row) {
@@ -68,18 +74,19 @@ function generateBoard () {
         $('#board').append(slotHtml);
       }
     });
+    console.log("hide = " + hide);
+    // setTimeout(function() {hide -= 5;}, 500);
   });
-}
-  function boardShift () {
-      if (hide === 5) {
-        hide += 5;
-      }
-
-    var slotHtml;
-//begin showing the 5 squares at a time
-    if (hide > 0){
-      slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
-      $('#board').append(slotHtml);
-      show -= 5;
-    }
+  hide = 25;
   }
+
+function moveBoard() {
+  console.log("hide in the moveBoard function is: " + hide );
+ myGlobalGame.stage ++;
+ console.log("stage is: " + myGlobalGame.stage);
+
+
+
+ generateBoard();
+}
+//setTimeout(function(){showRows();}, 3);
