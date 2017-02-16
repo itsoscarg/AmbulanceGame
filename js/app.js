@@ -7,7 +7,7 @@ myGlobalGame = new AmbulanceGame();
 $(document).ready(function () {
 //2. Take the initial board and place it on the screen by calling function
   generateBoard();
-setInterval(function(){ moveBoard();}, 4000);
+setInterval(function(){ moveBoard();generateBoard();},450);
 
 });
 
@@ -41,7 +41,7 @@ function moveGame (ev) {
 
  //generateBoard function
 function generateBoard () {
-   hide =  25 - (myGlobalGame.stage * 5);
+   hide =  100 - (myGlobalGame.stage * 5);
   console.log("hide variable is: " + hide);
   $('#board').empty();
   var slotHtml;
@@ -64,7 +64,7 @@ function generateBoard () {
         // empty slot
         ambulanceClass = '';
       }
-//hide the first 25 squares else show the rest
+//hide the first 100 squares else show the rest
       if (hide > 0){
         slotHtml = '<div class="square2"><div class="slot' + ambulanceClass + '"></div></div>';
         $('#board').append(slotHtml);
@@ -74,19 +74,19 @@ function generateBoard () {
         $('#board').append(slotHtml);
       }
     });
-    console.log("hide = " + hide);
-    // setTimeout(function() {hide -= 5;}, 500);
   });
-  hide = 25;
+  hide = 100;
   }
 
 function moveBoard() {
-  console.log("hide in the moveBoard function is: " + hide );
  myGlobalGame.stage ++;
- console.log("stage is: " + myGlobalGame.stage);
-
-
-
+ myGlobalGame.board.forEach(function (row, rowIndex) {
+   row.forEach(function (cell, colIndex) {
+     if (cell === 1) {
+       myGlobalGame.board[rowIndex][colIndex] = null;
+       myGlobalGame.board[rowIndex - 1][colIndex] = 1;
+     }
+   });
+   });
+ }
  generateBoard();
-}
-//setTimeout(function(){showRows();}, 3);
