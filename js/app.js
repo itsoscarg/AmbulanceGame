@@ -90,3 +90,16 @@ function moveBoard() {
    });
  }
  generateBoard();
+
+//  function hasWon() {
+//    myGlobalGame.board.forEach(function (row, rowIndex) {
+//      row.forEach(function (cell, colIndex) {
+//        var myAmbulance;
+//        if (cell === 1) {
+//          myAmbulance = cell;
+//          console.log(myAmbulance );
+//  }
+//   });
+//   });
+// }
+// generateBoard();
