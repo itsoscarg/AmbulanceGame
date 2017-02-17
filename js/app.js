@@ -7,7 +7,7 @@ myGlobalGame = new AmbulanceGame();
 $(document).ready(function () {
 //2. Take the initial board and place it on the screen by calling function
   generateBoard();
-setInterval(function(){ moveBoard();generateBoard();},450);
+setInterval(function(){ moveBoard();generateBoard();},400);
 
 });
 
