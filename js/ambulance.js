@@ -4,7 +4,67 @@ function AmbulanceGame (player1Name) {
     [ null, null, 0, null, null ], // 0
     [ null, null, null, null, null ], // 1
     [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, 2, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, 2, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 1
     [ null, null, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 2
+    [ null, null, 2, null, null ], // 3
+    [ null, null, null, null, null ], // 4
+    [ null, null, null, null, null ], // 5
+    [ null, 2, null, 2, null ], // 6
+    [ null, null, null, null, null ], // 7
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, 2, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, 2, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 2
+    [ null, null, 2, null, null ], // 3
+    [ null, null, null, null, null ], // 4
+    [ null, null, null, null, null ], // 5
+    [ null, 2, null, 2, null ], // 6
+    [ null, null, null, null, null ], // 7
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ 2, null, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, 2, null, null, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, 2, null, null ], // 1
+    [ null, 2, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 1
+    [ null, null, null, 2, null ], // 1
+    [ null, null, null, null, null ], // 2
+    [ null, null, 2, null, null ], // 3
+    [ null, null, null, null, null ], // 4
+    [ null, null, null, null, null ], // 5
+    [ null, 2, null, 2, null ], // 6
+    [ null, null, null, null, null ], // 7
+    [ null, null, null, null, null ], // 1
     [ null, null, 2, null, null ], // 1
     [ 2, null, null, null, null ], // 1
     [ null, null, null, null, null ], // 1
@@ -43,7 +103,10 @@ AmbulanceGame.prototype.moveLeft = function () {
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex - 1] = 1;
     }}
-generateBoard();
+hasWon();
+hasLost();
+//generateBoard();
+
     });
   });
 };
@@ -65,7 +128,9 @@ AmbulanceGame.prototype.moveRight = function () {
       theBoard[rowIndex][colIndex] = null;
       theBoard[rowIndex][colIndex + 1] = 1;
     }}
-generateBoard();
+//generateBoard();
+hasWon();
+hasLost();
     });
   });
 };

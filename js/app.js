@@ -38,10 +38,19 @@ function moveGame (ev) {
   }
 }
 
+function loadSounds () {
+  ion.sound({
+    sounds: [{name: "snap"}, {name: "tap"}],
+
+    path: "../lib/ion.sound-3.0.7/sounds/",
+    preload: true,
+    volume: 1.0
+  });
+}
 
  //generateBoard function
 function generateBoard () {
-   hide =  100 - (myGlobalGame.stage * 5);
+   hide =  400 - (myGlobalGame.stage * 5);
   console.log("hide variable is: " + hide);
   $('#board').empty();
   var slotHtml;
@@ -64,7 +73,7 @@ function generateBoard () {
         // empty slot
         ambulanceClass = '';
       }
-//hide the first 100 squares else show the rest
+//hide the first 400 squares else show the rest
       if (hide > 0){
         slotHtml = '<div class="square2"><div class="slot' + ambulanceClass + '"></div></div>';
         $('#board').append(slotHtml);
@@ -72,34 +81,67 @@ function generateBoard () {
       } else {
         slotHtml = '<div class="square"><div class="slot' + ambulanceClass + '"></div></div>';
         $('#board').append(slotHtml);
-      }
+        }
+      //hasWon();
     });
   });
-  hide = 100;
+  hide = 400;
   }
-
+//this will show you each row and make it seem like the board is moving
 function moveBoard() {
  myGlobalGame.stage ++;
  myGlobalGame.board.forEach(function (row, rowIndex) {
    row.forEach(function (cell, colIndex) {
      if (cell === 1) {
+        hasLost(myGlobalGame.board[rowIndex - 1][colIndex]);
        myGlobalGame.board[rowIndex][colIndex] = null;
        myGlobalGame.board[rowIndex - 1][colIndex] = 1;
      }
-   });
-   });
- }
- generateBoard();
 
-//  function hasWon() {
-//    myGlobalGame.board.forEach(function (row, rowIndex) {
-//      row.forEach(function (cell, colIndex) {
-//        var myAmbulance;
-//        if (cell === 1) {
-//          myAmbulance = cell;
-//          console.log(myAmbulance );
-//  }
-//   });
-//   });
+   });
+   });
+hasWon();
+hasLost();
+ }
+
+ function hasWon() {
+      if (myGlobalGame.board[0][2] === 1) {
+      $('.container').hide();
+      var winnerHtml = '<img src="./img/hospital.gif" alt="Winner">';
+      $('body').append(winnerHtml);
+     }
+}
+
+function hasLost(coords){
+  if (coords === 2){
+    alert("you lose");
+
+  }
+}
+
+
+
+// {
+//   $('#game-board').remove();
+  // var winnerHtml = '<img src="https://media.giphy.com/media/xTiTnz33weTH3K8Uvu/giphy.gif" alt="Winner">';
+  // $('body').append(winnerHtml);
 // }
-// generateBoard();
+//
+// else if (myGlobalGame.hasLost) {
+//   ion.sound.play('beer_can_opening');
+//   $('#game-board').remove();
+//   var loserHtml = '<img src="https://media.giphy.com/media/l3q2K12v7LgvwlATC/giphy.gif" alt="Loser">';
+//   $('body').append(loserHtml);
+// }
+
+// function hasLost() {
+//   myGlobalGame.board.forEach(function (row, rowIndex) {
+//     row.forEach(function (cell, colIndex) {
+//       if (myGlobalGame.board[2][0] === 1) {
+//      alert("Oh no! You crashed!");
+//     }
+//  });
+//  });
+// }
+hasWon();
+generateBoard();
