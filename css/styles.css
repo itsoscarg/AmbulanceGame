@@ -1,3 +1,11 @@
+html,
+body,
+.container,
+.board {
+  height: 100%;
+}
+
+
 @media (min-width: 1130px) {
 .container {
   margin-left:  0%;
@@ -21,9 +29,8 @@ h1 {
 .square {
   float: left;
   border: 1px solid black;
-  padding: 10px;
-  width: 110px;
-  height: 110px;
+  width: 20%;
+  height: 20%;
   box-sizing: border-box;
 }
 
@@ -31,26 +38,33 @@ h1 {
   visibility: hidden;
   float: left;
   border: 1px solid black;
-  padding: 10px;
-  width: 110px;
-  height: 110px;
+  padding: 9%;
+  width: 20%;
+  height: 100%;
   box-sizing: border-box;
 }
 
 .slotambulance1{
-  background-color: red;
-  width: 100%;
+  background-image: url("../img/ambsmall.png");
+  background-size: contain;
+  width: 33%;
   height: 100%;
+  margin: 0 auto;
 }
 
 .slotobstacle{
-  background-color: green;
-  width: 100%;
+  background-image: url("../img/redcar.png");
+  background-size: contain;
+  width: 33%;
   height: 100%;
+  margin: 0 auto;
 }
 
 .slothospital{
-  background-color: blue;
-  width: 100%;
+  background-image: url("../img/hospital.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 33%;
   height: 100%;
+  margin: 0 auto;
 }
