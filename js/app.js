@@ -11,7 +11,7 @@ setInterval(function(){ moveBoard();generateBoard();},400);
 ion.sound({
   sounds: [{name: "siren"}],
 
-  path: "../lib/ion.sound-3.0.7/sounds/",
+  path: "lib/ion.sound-3.0.7/sounds/",
   preload: true,
   volume: 1.0
 });
