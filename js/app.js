@@ -6,6 +6,7 @@ myGlobalGame = new AmbulanceGame();
 
 $(document).ready(function () {
 //2. Take the initial board and place it on the screen by calling function
+
   generateBoard();
 setInterval(function(){ moveBoard();generateBoard();},400);
 ion.sound({
@@ -15,6 +16,7 @@ ion.sound({
   preload: true,
   volume: 1.0
 });
+ion.sound.play("siren",{loop: 3});
 });
 
 //3. Handle keyboard events
@@ -52,7 +54,7 @@ function generateBoard () {
   $('#board').empty();
   var slotHtml;
 
-  ion.sound.play("siren");
+
   myGlobalGame.board.forEach(function (row) {
     row.forEach(function (slot) {
       var ambulanceClass;
@@ -107,18 +109,21 @@ hasLost();
       $('.container').hide();
       var winnerHtml = '<img src="./img/hospital.gif" alt="Winner">';
       $('body').append(winnerHtml);
+      ion.sound.stop("siren");
+     ion.sound.play("applause");
      }
-    ion.sound.play("applause");
-}
+    }
 
 function hasLost(coords){
   if (coords === 2){
     $('.container').hide();
     var loserHtml = '<img src="./img/crash2.gif" alt="Loser">';
     $('body').append(loserHtml);
+    ion.sound.stop("siren");
+    ion.sound.play("crash");
+    }
   }
-  ion.sound.play("crash");
-}
+
 
 
 
@@ -144,5 +149,5 @@ function hasLost(coords){
 //  });
 //  });
 // }
-hasWon();
-generateBoard();
+//hasWon();
+//generateBoard();
