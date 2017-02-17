@@ -96,6 +96,7 @@ AmbulanceGame.prototype.moveLeft = function () {
     this.board.forEach(function (row, rowIndex) {
       row.forEach(function (cell, colIndex) {
       if (cell === 1) {
+        hasLost(myGlobalGame.board[rowIndex][colIndex - 1]);
         if (colIndex === 0) {
           return;
         }
@@ -120,6 +121,7 @@ AmbulanceGame.prototype.moveRight = function () {
     this.board.forEach(function (row, rowIndex) {
       row.forEach(function (cell, colIndex) {
       if ((cell === 1) && found === false)  {
+        hasLost(myGlobalGame.board[rowIndex][colIndex + 1]);
         if (colIndex === 4) {
           return;
         }

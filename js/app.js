@@ -114,7 +114,9 @@ hasLost();
 
 function hasLost(coords){
   if (coords === 2){
-    alert("you lose");
+    $('.container').hide();
+    var loserHtml = '<img src="./img/crash.gif" alt="Loser">';
+    $('body').append(loserHtml);
 
   }
 }
