@@ -82,7 +82,7 @@ function AmbulanceGame (player1Name) {
     [ null, null, 2, null, null ], // 3
     [ null, null, null, null, null ], // 4
     [ null, null, null, null, null ], // 5
-    [ null, 2, null, 2, null ], // 6
+    [ null, null, null, null, null ], // 6
     [ null, null, null, null, null ], // 7
     [ null, null, 1, null, null ], // 8
     ];

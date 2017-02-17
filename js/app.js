@@ -8,7 +8,13 @@ $(document).ready(function () {
 //2. Take the initial board and place it on the screen by calling function
   generateBoard();
 setInterval(function(){ moveBoard();generateBoard();},400);
+ion.sound({
+  sounds: [{name: "siren"}],
 
+  path: "../lib/ion.sound-3.0.7/sounds/",
+  preload: true,
+  volume: 1.0
+});
 });
 
 //3. Handle keyboard events
@@ -38,15 +44,15 @@ function moveGame (ev) {
   }
 }
 
-function loadSounds () {
-  ion.sound({
-    sounds: [{name: "snap"}, {name: "tap"}],
-
-    path: "../lib/ion.sound-3.0.7/sounds/",
-    preload: true,
-    volume: 1.0
-  });
-}
+//function loadSounds () {
+  // ion.sound({
+  //   sounds: [{name: "siren"}],
+  //
+  //   path: "../lib/ion.sound-3.0.7/sounds/",
+  //   preload: true,
+  //   volume: 1.0
+  // });
+//}
 
  //generateBoard function
 function generateBoard () {
@@ -54,7 +60,10 @@ function generateBoard () {
   console.log("hide variable is: " + hide);
   $('#board').empty();
   var slotHtml;
-
+  // myGlobalGame.prototype.generateBoard = function (direction) {
+  //   ion.sound.play("siren");
+  // };
+  ion.sound.play("siren");
   myGlobalGame.board.forEach(function (row) {
     row.forEach(function (slot) {
       var ambulanceClass;
@@ -115,7 +124,7 @@ hasLost();
 function hasLost(coords){
   if (coords === 2){
     $('.container').hide();
-    var loserHtml = '<img src="./img/crash.gif" alt="Loser">';
+    var loserHtml = '<img src="./img/crash2.gif" alt="Loser">';
     $('body').append(loserHtml);
 
   }
