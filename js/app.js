@@ -9,7 +9,7 @@ $(document).ready(function () {
   generateBoard();
 setInterval(function(){ moveBoard();generateBoard();},400);
 ion.sound({
-  sounds: [{name: "siren"}],
+  sounds: [{name: "siren"}, {name: "applause"}, {name: "crash"}],
 
   path: "lib/ion.sound-3.0.7/sounds/",
   preload: true,
@@ -44,15 +44,6 @@ function moveGame (ev) {
   }
 }
 
-//function loadSounds () {
-  // ion.sound({
-  //   sounds: [{name: "siren"}],
-  //
-  //   path: "../lib/ion.sound-3.0.7/sounds/",
-  //   preload: true,
-  //   volume: 1.0
-  // });
-//}
 
  //generateBoard function
 function generateBoard () {
@@ -60,9 +51,7 @@ function generateBoard () {
   console.log("hide variable is: " + hide);
   $('#board').empty();
   var slotHtml;
-  // myGlobalGame.prototype.generateBoard = function (direction) {
-  //   ion.sound.play("siren");
-  // };
+
   ion.sound.play("siren");
   myGlobalGame.board.forEach(function (row) {
     row.forEach(function (slot) {
@@ -119,6 +108,7 @@ hasLost();
       var winnerHtml = '<img src="./img/hospital.gif" alt="Winner">';
       $('body').append(winnerHtml);
      }
+    ion.sound.play("applause");
 }
 
 function hasLost(coords){
@@ -126,8 +116,8 @@ function hasLost(coords){
     $('.container').hide();
     var loserHtml = '<img src="./img/crash2.gif" alt="Loser">';
     $('body').append(loserHtml);
-
   }
+  ion.sound.play("crash");
 }
 
 
