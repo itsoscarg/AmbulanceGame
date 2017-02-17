@@ -50,6 +50,7 @@ h1 {
   width: 33%;
   height: 100%;
   margin: 0 auto;
+  background-repeat: no-repeat;
 }
 
 .slotobstacle{
@@ -58,6 +59,7 @@ h1 {
   width: 33%;
   height: 100%;
   margin: 0 auto;
+  background-repeat: no-repeat;
 }
 
 .slothospital{
